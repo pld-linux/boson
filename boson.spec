@@ -45,11 +45,11 @@ kde_htmldir=%{_htmldir}; export kde_htmldir
 	--enable-final
 
 # %{__make} Fails becuse after including many QT headers gcc is unable to find <map> :/
-mv map map.foo
+mv ./data/map ./data/map.foo
 cd boson
 %{__make}
 cd ..
-mv map.foo map
+mv ./data/map.foo ./data/map
 %{__make}
 
 %install
