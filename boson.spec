@@ -69,8 +69,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
-#%doc %{_htmldir}/en/Boson
 %attr(755,root,root) %{_bindir}/*
-#%{_applnkdir}/*
-#%{_datadir}/apps/*
-#%{_pixmapsdir}/*
+%{_htmldir}/en/boson
+%{_applnkdir}/Games/TacticStrategy/*.desktop
+%{_datadir}/apps/boson/bosonui.rc
+%{_datadir}/apps/boson/themes
+%{_datadir}/apps/boson/map
+%{_datadir}/apps/boson/music/*/*
+%{_datadir}/apps/boson/pics/*.png
+%{_pixmapsdir}/*/*/apps/boson.png
