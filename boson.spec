@@ -8,13 +8,13 @@ Group:		X11/Applications/Games
 Source0:	http://telia.dl.sourceforge.net/sourceforge/boson/%{name}-all-%{version}.tar.bz2
 Icon:		boson.xpm
 URL:		http://boson.sourceforge.net/
+BuildRequires:	arts-devel
 BuildRequires:	kdegames-devel
-BuildRequires:	kdelibs-devel
+BuildRequires:	kdelibs-devel >= 3.0.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
-
 %define		_htmldir	%{_docdir}/kde/HTML
 
 %description
@@ -45,9 +45,9 @@ stronê WWW: http://aquila.rezel.enst.fr/boson/.
 %build
 kde_icondir=%{_pixmapsdir}; export kde_icondir
 kde_htmldir=%{_htmldir}; export kde_htmldir
-%configure2_13 \
+%configure \
 	--with-install-root=%{buildroot}
-%{__make}
+%{__make} CXXFLAGS="-DQT_NO_STL"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -62,8 +62,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
-%doc %{_htmldir}/en/Boson
+#%doc %{_htmldir}/en/Boson
 %attr(755,root,root) %{_bindir}/*
-%{_applnkdir}/*
-%{_datadir}/apps/*
-%{_pixmapsdir}/*
+#%{_applnkdir}/*
+#%{_datadir}/apps/*
+#%{_pixmapsdir}/*
