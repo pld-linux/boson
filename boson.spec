@@ -8,7 +8,7 @@ Group:		X11/Applications/Games
 Group(de):	X11/Aplikacje/Spiele
 Group(pl):	X11/Aplikacje/Gry
 Source0:	http://prdownloads.sourceforge.net/boson/%{name}-%{version}.tar.bz2
-Source1:	http://prdownloads.sourceforge.net/boson/%{name}-pics-%{version}.tar.bz2
+Source1:	http://prdownloads.sourceforge.net/boson/%{name}-pics-%{version}.tgz
 Icon:		boson.xpm
 URL:		http://boson.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
