@@ -5,7 +5,7 @@ Version:	0.6.1
 Release:	3
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://telia.dl.sourceforge.net/sourceforge/boson/%{name}-all-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-all-%{version}.tar.bz2
 # Source0-md5:	a8a1f40fde64d5e03d22b3d10cc16198
 Patch0:		%{name}-desktop.patch
 Icon:		boson.xpm
