@@ -8,7 +8,7 @@ Source0:	boson-%{version}.tgz
 Source1:	boson-pics-%{version}.tgz
 Icon:		boson.xpm
 URL:		http://aquila.rezel.enst.fr/boson/
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -42,7 +42,6 @@ CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" ./configure \
               --libdir=%{buildroot}/$KDEDIR/lib \
  --with-install-root=%{buildroot}
 make
-
 
 %install
 if [ -d $RPM_BUILD_ROOT ]; then rm -rf $RPM_BUILD_ROOT ; fi
