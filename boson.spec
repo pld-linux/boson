@@ -70,9 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config/*
 %{_iconsdir}/hicolor/*/*/*
 %dir %{_libdir}/kde3/plugins/boson
+%attr(755,root,root) %{_libdir}/kde3/plugins/boson/*.so*
 %{_libdir}/kde3/plugins/boson/*.la
-%attr(755,root,root) %{_libdir}/kde3/plugins/boson/*.so.0.0.0
-%{_libdir}/kde3/plugins/boson/*.so
-%{_libdir}/kde3/plugins/boson/*.so.0
 %attr(755,root,root) %{_libdir}/kde3/plugins/designer/*.so
 %{_libdir}/kde3/plugins/designer/*.la
