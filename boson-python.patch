@@ -1,0 +1,260 @@
+diff -urN boson-all-0.10.orig/configure boson-all-0.10/configure
+--- boson-all-0.10.orig/configure	2004-05-02 14:37:20.000000000 +0000
++++ boson-all-0.10/configure	2004-07-28 20:51:42.776981864 +0000
+@@ -27212,7 +27212,7 @@
+ python_libdir=NO
+ for i in $python_libdirs;
+ do
+-  for j in libpython$version.a;
++  for j in libpython$version.so;
+   do
+     echo "configure: 27217: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27223,12 +27223,12 @@
+   done
+ done
+ 
+-if test ! -r $python_libdir/libpython$version.a; then
++if test ! -r $python_libdir/libpython$version.so; then
+ 
+ python_libdir=NO
+ for i in $python_libdirs;
+ do
+-  for j in python$version/config/libpython$version.a;
++  for j in python$version/config/libpython$version.so;
+   do
+     echo "configure: 27233: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27240,7 +27240,7 @@
+ done
+ 
+   python_libdir=$python_libdir/python$version/config
+-  if test ! -r $python_libdir/libpython$version.a; then
++  if test ! -r $python_libdir/libpython$version.so; then
+     python_libdir=no
+   fi
+ fi
+@@ -27256,7 +27256,7 @@
+ python_moddir=NO
+ for i in $python_libdirs;
+ do
+-  for j in python$version/copy.py;
++  for j in python$version/copy.pyo;
+   do
+     echo "configure: 27261: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27267,8 +27267,8 @@
+   done
+ done
+ 
+-python_moddir=$python_moddir/python$version
+-if test ! -r $python_moddir/copy.py; then
++python_moddir=/usr/share/python2.3/
++if test ! -r $python_moddir/copy.pyo; then
+   python_moddir=no
+ fi
+ 
+@@ -27340,7 +27340,7 @@
+ python_libdir=NO
+ for i in $python_libdirs;
+ do
+-  for j in libpython$version.a;
++  for j in libpython$version.so;
+   do
+     echo "configure: 27345: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27351,12 +27351,12 @@
+   done
+ done
+ 
+-if test ! -r $python_libdir/libpython$version.a; then
++if test ! -r $python_libdir/libpython$version.so; then
+ 
+ python_libdir=NO
+ for i in $python_libdirs;
+ do
+-  for j in python$version/config/libpython$version.a;
++  for j in python$version/config/libpython$version.so;
+   do
+     echo "configure: 27361: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27368,7 +27368,7 @@
+ done
+ 
+   python_libdir=$python_libdir/python$version/config
+-  if test ! -r $python_libdir/libpython$version.a; then
++  if test ! -r $python_libdir/libpython$version.so; then
+     python_libdir=no
+   fi
+ fi
+@@ -27384,7 +27384,7 @@
+ python_moddir=NO
+ for i in $python_libdirs;
+ do
+-  for j in python$version/copy.py;
++  for j in python$version/copy.pyo;
+   do
+     echo "configure: 27389: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27396,7 +27396,7 @@
+ done
+ 
+ python_moddir=$python_moddir/python$version
+-if test ! -r $python_moddir/copy.py; then
++if test ! -r $python_moddir/copy.pyo; then
+   python_moddir=no
+ fi
+ 
+@@ -27468,7 +27468,7 @@
+ python_libdir=NO
+ for i in $python_libdirs;
+ do
+-  for j in libpython$version.a;
++  for j in libpython$version.so;
+   do
+     echo "configure: 27473: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27479,12 +27479,12 @@
+   done
+ done
+ 
+-if test ! -r $python_libdir/libpython$version.a; then
++if test ! -r $python_libdir/libpython$version.so; then
+ 
+ python_libdir=NO
+ for i in $python_libdirs;
+ do
+-  for j in python$version/config/libpython$version.a;
++  for j in python$version/config/libpython$version.so;
+   do
+     echo "configure: 27489: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27496,7 +27496,7 @@
+ done
+ 
+   python_libdir=$python_libdir/python$version/config
+-  if test ! -r $python_libdir/libpython$version.a; then
++  if test ! -r $python_libdir/libpython$version.so; then
+     python_libdir=no
+   fi
+ fi
+@@ -27512,7 +27512,7 @@
+ python_moddir=NO
+ for i in $python_libdirs;
+ do
+-  for j in python$version/copy.py;
++  for j in python$version/copy.pyo;
+   do
+     echo "configure: 27517: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27524,7 +27524,7 @@
+ done
+ 
+ python_moddir=$python_moddir/python$version
+-if test ! -r $python_moddir/copy.py; then
++if test ! -r $python_moddir/copy.pyo; then
+   python_moddir=no
+ fi
+ 
+@@ -27596,7 +27596,7 @@
+ python_libdir=NO
+ for i in $python_libdirs;
+ do
+-  for j in libpython$version.a;
++  for j in libpython$version.so;
+   do
+     echo "configure: 27601: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27607,12 +27607,12 @@
+   done
+ done
+ 
+-if test ! -r $python_libdir/libpython$version.a; then
++if test ! -r $python_libdir/libpython$version.so; then
+ 
+ python_libdir=NO
+ for i in $python_libdirs;
+ do
+-  for j in python$version/config/libpython$version.a;
++  for j in python$version/config/libpython$version.so;
+   do
+     echo "configure: 27617: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27624,7 +27624,7 @@
+ done
+ 
+   python_libdir=$python_libdir/python$version/config
+-  if test ! -r $python_libdir/libpython$version.a; then
++  if test ! -r $python_libdir/libpython$version.so; then
+     python_libdir=no
+   fi
+ fi
+@@ -27640,7 +27640,7 @@
+ python_moddir=NO
+ for i in $python_libdirs;
+ do
+-  for j in python$version/copy.py;
++  for j in python$version/copy.pyo;
+   do
+     echo "configure: 27645: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27652,7 +27652,7 @@
+ done
+ 
+ python_moddir=$python_moddir/python$version
+-if test ! -r $python_moddir/copy.py; then
++if test ! -r $python_moddir/copy.pyo; then
+   python_moddir=no
+ fi
+ 
+@@ -27724,7 +27724,7 @@
+ python_libdir=NO
+ for i in $python_libdirs;
+ do
+-  for j in libpython$version.a;
++  for j in libpython$version.so;
+   do
+     echo "configure: 27729: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27735,12 +27735,12 @@
+   done
+ done
+ 
+-if test ! -r $python_libdir/libpython$version.a; then
++if test ! -r $python_libdir/libpython$version.so; then
+ 
+ python_libdir=NO
+ for i in $python_libdirs;
+ do
+-  for j in python$version/config/libpython$version.a;
++  for j in python$version/config/libpython$version.so;
+   do
+     echo "configure: 27745: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27752,7 +27752,7 @@
+ done
+ 
+   python_libdir=$python_libdir/python$version/config
+-  if test ! -r $python_libdir/libpython$version.a; then
++  if test ! -r $python_libdir/libpython$version.so; then
+     python_libdir=no
+   fi
+ fi
+@@ -27768,7 +27768,7 @@
+ python_moddir=NO
+ for i in $python_libdirs;
+ do
+-  for j in python$version/copy.py;
++  for j in python$version/copy.pyo;
+   do
+     echo "configure: 27773: $i/$j" >&5
+     if test -r "$i/$j"; then
+@@ -27780,7 +27780,7 @@
+ done
+ 
+ python_moddir=$python_moddir/python$version
+-if test ! -r $python_moddir/copy.py; then
++if test ! -r $python_moddir/copy.pyo; then
+   python_moddir=no
+ fi
+ 
