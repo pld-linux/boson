@@ -1,20 +1,23 @@
 Summary:	Boson: a Real-Time Strategy Game (RTS) for the KDE project
 Summary(pl):	Boson: gra strategiczna w czasie rzeczywistym dla KDE
-Name:		boson 
+Name:		boson
 Version:	0.5
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Group(de):	X11/Aplikacje/Spiele
 Group(pl):	X11/Aplikacje/Gry
-Source0:	http://prdownloads.sourceforge.net/boson/%{name}-%{version}.tar.bz2
-Source1:	http://prdownloads.sourceforge.net/boson/%{name}-pics-%{version}.tgz
+Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/boson/%{name}-%{version}.tar.bz2
+Source1:	ftp://ftp.sourceforge.net/pub/sourceforge/boson/%{name}-pics-%{version}.tgz
 Icon:		boson.xpm
 URL:		http://boson.sourceforge.net/
+BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
+
+%define		_htmldir	%{_docdir}/kde/HTML
 
 %description
 Boson is a real-time strategy game, like Command&Conquer(tm) or
@@ -40,27 +43,32 @@ stronê WWW: http://aquila.rezel.enst.fr/boson/.
 
 %prep
 %setup -q
+
 %build
+kde_icondir=%{_pixmapsdir}; export kde_icondir
+kde_htmldir=%{_htmldir}; export kde_htmldir
 %configure2_13 \
 	--with-install-root=%{buildroot}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} prefix=$RPM_BUILD_ROOT%{_prefix} install
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 ## install textures and resources files :
 install -d $RPM_BUILD_ROOT%{_datadir}/apps
 tar xzf %{SOURCE1} -C $RPM_BUILD_ROOT%{_datadir}/apps
 
+gzip -9nf AUTHORS ChangeLog README TODO
+
 %clean
-rm -f $RPM_SOURCE_DIR
+rm -rf $RPM_BUILD_ROOT
 
 %files 
 %defattr(644,root,root,755)
+%doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/*
-%{_datadir}/apps/
-%{_datadir}/icons/*
-%doc %{_datadir}/doc/HTML/en/Boson/
-%doc AUTHORS ChangeLog README TODO
+%{_datadir}/apps/*
+%{_pixmapsdir}/*
+%doc %{_htmldir}/en/Boson
