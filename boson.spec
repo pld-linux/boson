@@ -24,7 +24,7 @@ Boson's Code and Graphics are published under the GNU General Public License.
 
 If you want to know more about Boson, have a look at the Web site.
 
-%description
+%description - pl
 Boson jest gr± strategiczn± rozgrywan± w czsie rzeczywistym, tak jak
 Command&Conquer czy StarCraft. Zosta³ zaprojektowany dla maszyn uniksowych
 (linuksowych); uzywa biblioteki Qt i QwSpriteField. Wymaga siê co najmniej
