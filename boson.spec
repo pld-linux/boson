@@ -8,6 +8,7 @@ Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-all-%{version}.tar.bz2
 # Source0-md5:	a8a1f40fde64d5e03d22b3d10cc16198
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-qptrdict_h.patch
 Icon:		boson.xpm
 URL:		http://boson.sourceforge.net/
 BuildRequires:	arts-devel
@@ -36,6 +37,7 @@ jeszcze w niego graæ.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
 
 %build
 kde_icondir=%{_pixmapsdir}; export kde_icondir
