@@ -47,7 +47,7 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make prefix=$RPM_BUILD_ROOT%{_prefix} install
+%{__make} prefix=$RPM_BUILD_ROOT%{_prefix} install
 
 ## install textures and resources files :
 mkdir $RPM_BUILD_ROOT%{_datadir}/apps/
