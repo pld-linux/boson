@@ -43,7 +43,7 @@ kde_htmldir=%{_htmldir}; export kde_htmldir
 %configure \
 	--disable-rpath \
 	--enable-final
-	
+
 # %{__make} Fails becuse after including many QT headers gcc is unable to find <map> :/
 mv map map.foo
 cd boson
