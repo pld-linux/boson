@@ -21,7 +21,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Boson is a real-time strategy game, like Command&Conquer(tm) or
 StarCraft(tm). It is designed to run on Unix (Linux) computers and
 uses the Qt Toolkit and QwSpriteField. A minimum of two players is
-required, since there is no artifical intelligence (yet?). Boson is
+required, since there is no artificial intelligence (yet?). Boson is
 still in very early development and not playable yet.
 
 %description -l pl
