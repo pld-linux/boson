@@ -1,19 +1,20 @@
 Summary:	Boson: a Real-Time Strategy Game (RTS) for the KDE project
 Summary(pl):	Boson: gra strategiczna w czasie rzeczywistym dla KDE
 Name:		boson
-Version:	0.6.1
-Release:	3
+Version:	0.10
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-all-%{version}.tar.bz2
-# Source0-md5:	a8a1f40fde64d5e03d22b3d10cc16198
+# Source0-md5:	e54b1a3f1f140412597d4df296522bde
 Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-qptrdict_h.patch
+Patch1:		%{name}-python.patch
 Icon:		boson.xpm
 URL:		http://boson.sourceforge.net/
 BuildRequires:	arts-devel
 BuildRequires:	kdegames-devel >= 3.0.3
 BuildRequires:	kdelibs-devel >= 3.0.3
+BuildRequires:	lib3ds-devel
 Requires:	arts-X11
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -35,23 +36,25 @@ inteligencji. Boson jest wci±¿ w fazie wczesnego rozwoju i nie da siê
 jeszcze w niego graæ.
 
 %prep
-%setup -q -n %{name}
-%patch0 -p1
+%setup -q -n %{name}-all-%{version}
+%patch0	-p1
 %patch1 -p1
 
 %build
 kde_icondir=%{_pixmapsdir}; export kde_icondir
 kde_htmldir=%{_htmldir}; export kde_htmldir
 %configure \
+	--host=%{_host}\
+	--target=%{_target_platform} \
 	--disable-rpath \
 	--enable-final
 
 # %{__make} Fails becuse after including many QT headers gcc is unable to find <map> :/
-mv ./data/map ./data/map.foo
-cd boson
-%{__make}
-cd ..
-mv ./data/map.foo ./data/map
+#mv ./data/map ./data/map.foo
+#cd boson
+#%{__make}
+#cd ..
+#mv ./data/map.foo ./data/map
 %{__make}
 
 %install
