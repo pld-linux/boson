@@ -1,14 +1,14 @@
 Summary:	Boson: a Real-Time Strategy Game (RTS) for the KDE project
 Summary(pl):	Boson: gra strategiczna w czasie rzeczywistym dla KDE
 Name:		boson
-Version:	0.5
+Version:	0.6.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/boson/%{name}-%{version}.tar.bz2
-Source1:	ftp://ftp.sourceforge.net/pub/sourceforge/boson/%{name}-pics-%{version}.tgz
+Source0:	http://telia.dl.sourceforge.net/sourceforge/boson/%{name}-all-%{version}.tar.bz2
 Icon:		boson.xpm
 URL:		http://boson.sourceforge.net/
+BuildRequires:	kdegames-devel
 BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,7 +40,7 @@ GNU. Aby dowiedzieæ siê wiêcej na temat Bosona, nale¿y zajrzeæ na
 stronê WWW: http://aquila.rezel.enst.fr/boson/.
 
 %prep
-%setup -q
+%setup -q -n %{name}
 
 %build
 kde_icondir=%{_pixmapsdir}; export kde_icondir
@@ -54,19 +54,16 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 ## install textures and resources files :
-install -d $RPM_BUILD_ROOT%{_datadir}/apps
-tar xzf %{SOURCE1} -C $RPM_BUILD_ROOT%{_datadir}/apps
-
-gzip -9nf AUTHORS ChangeLog README TODO
+#install -d $RPM_BUILD_ROOT%{_datadir}/apps
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS ChangeLog README TODO
+%doc %{_htmldir}/en/Boson
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/*
 %{_datadir}/apps/*
 %{_pixmapsdir}/*
-%doc %{_htmldir}/en/Boson
