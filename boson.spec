@@ -42,8 +42,6 @@ stronê WWW: http://aquila.rezel.enst.fr/boson/.
 %setup -q
 %build
 %configure2_13 \
-	--prefix=$KDEDIR \
-	--libdir=%{buildroot}/$KDEDIR/lib \
 	--with-install-root=%{buildroot}
 %{__make}
 
