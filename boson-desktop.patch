@@ -1,0 +1,30 @@
+--- boson/boson/data/boeditor.desktop~	Sat Oct 26 12:16:00 2002
++++ boson/boson/data/boeditor.desktop	Sat Oct 26 12:16:00 2002
+@@ -7,11 +7,8 @@
+ Name[it]=BoEditor
+ Exec=boeditor
+ MapNotify=true
+-TerminalOptions=
+-Icon=boeditor
+-Path=
++Icon=boeditor.png
+ DocPath=boeditor/index.html
+ Type=Application
+ Terminal=0
+ InitialPreference=8
+-
+--- boson/boson/data/boson.desktop~	Sat Oct 26 12:15:59 2002
++++ boson/boson/data/boson.desktop	Sat Oct 26 12:15:59 2002
+@@ -8,11 +8,8 @@
+ Name[it]=Boson
+ Exec=boson
+ MapNotify=true
+-TerminalOptions=
+-Icon=boson
+-Path=
++Icon=boson.png
+ DocPath=boson/index.html
+ Type=Application
+ Terminal=0
+ InitialPreference=8
+-
