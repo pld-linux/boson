@@ -43,14 +43,8 @@ jeszcze w niego graæ.
 kde_htmldir=%{_kdedocdir}; export kde_htmldir
 %configure \
 	--disable-rpath \
-	--enable-final
+	--with-xinerama
 
-# %{__make} Fails becuse after including many QT headers gcc is unable to find <map> :/
-#mv ./data/map ./data/map.foo
-#cd boson
-#%{__make}
-#cd ..
-#mv ./data/map.foo ./data/map
 %{__make}
 
 %install
@@ -59,10 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-## install textures and resources files :
-#install -d $RPM_BUILD_ROOT%{_datadir}/apps
-
-mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Games/TacticStrategy \
+mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Games/TacticStrategy/boson \
 	$RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name} --with-kde
@@ -76,4 +67,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/apps/boson
 %{_desktopdir}/*.desktop
-%{_iconsdir}/hicolor/*/apps/boson.png
+%{_datadir}/config/*
+%{_iconsdir}/hicolor/*/*/*
+%dir %{_libdir}/kde3/plugins/boson
+%{_libdir}/kde3/plugins/boson/*.la
+%attr(755,root,root) %{_libdir}/kde3/plugins/boson/*.so.0.0.0
+%{_libdir}/kde3/plugins/boson/*.so
+%{_libdir}/kde3/plugins/boson/*.so.0
+%attr(755,root,root) %{_libdir}/kde3/plugins/designer/*.so
+%{_libdir}/kde3/plugins/designer/*.la
