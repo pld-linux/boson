@@ -1,22 +1,35 @@
---- boson/boson/data/boeditor.desktop~	Sat Oct 26 12:16:00 2002
-+++ boson/boson/data/boeditor.desktop	Sat Oct 26 12:16:00 2002
-@@ -7,11 +7,8 @@
- Name[it]=BoEditor
- Exec=boeditor
+diff -urN boson-all-0.10.orig/boson/data/boinfo.desktop boson-all-0.10/boson/data/boinfo.desktop
+--- boson-all-0.10.orig/boson/data/boinfo.desktop	2004-04-30 13:03:29.000000000 +0000
++++ boson-all-0.10/boson/data/boinfo.desktop	2004-08-02 14:03:11.652405640 +0000
+@@ -3,11 +3,10 @@
+ Name=Boson Info
+ Exec=boinfo
  MapNotify=true
 -TerminalOptions=
--Icon=boeditor
+-Icon=boson
 -Path=
-+Icon=boeditor.png
- DocPath=boeditor/index.html
++Icon=boson.png
+ DocPath=boson/index.html
  Type=Application
- Terminal=0
+-Terminal=0
++Terminal=false
  InitialPreference=8
 -
---- boson/boson/data/boson.desktop~	Sat Oct 26 12:15:59 2002
-+++ boson/boson/data/boson.desktop	Sat Oct 26 12:15:59 2002
-@@ -8,11 +8,8 @@
++Categories=Qt;KDE;Game;StrategyGame;
++# vi: encoding=utf-8
+diff -urN boson-all-0.10.orig/boson/data/boson.desktop boson-all-0.10/boson/data/boson.desktop
+--- boson-all-0.10.orig/boson/data/boson.desktop	2004-04-30 13:03:29.000000000 +0000
++++ boson-all-0.10/boson/data/boson.desktop	2004-08-02 14:03:33.924019840 +0000
+@@ -2,17 +2,18 @@
+ Comment=Real-time strategy game
+ Comment[de]=Echtzeit Strategiespiel
+ Comment[fr]=Jeu de strategie en temps reel
++Comment[pl]=Gra strategiczna w czasie rzeczywistym dla KDE
+ Name=Boson
+ Name[de]=Boson
+ Name[fr]=Boson
  Name[it]=Boson
++Name[pl]=Boson
  Exec=boson
  MapNotify=true
 -TerminalOptions=
@@ -25,6 +38,34 @@
 +Icon=boson.png
  DocPath=boson/index.html
  Type=Application
- Terminal=0
+-Terminal=0
++Terminal=false
  InitialPreference=8
 -
++Categories=Qt;KDE;Game;StrategyGame;
++# vi: encoding=utf-8
+diff -urN boson-all-0.10.orig/boson/data/bounit.desktop boson-all-0.10/boson/data/bounit.desktop
+--- boson-all-0.10.orig/boson/data/bounit.desktop	2004-04-30 13:03:29.000000000 +0000
++++ boson-all-0.10/boson/data/bounit.desktop	2004-08-02 14:02:59.556244536 +0000
+@@ -1,15 +1,16 @@
+ [Desktop Entry]
+ Comment=Unit Editor for Boson
+ Comment[de]=Ein Einheiten-Editor für Boson
++Comment[pl]=Unit Editor dla Boson
+ Name=BoUnit
+ Name[de]=BoUnit
++Name[pl]=BoUnit
+ Exec=bounit
+ MapNotify=true
+-TerminalOptions=
+-Icon=boson
+-Path=
++Icon=boson.png
+ DocPath=boson/index.html
+ Type=Application
+-Terminal=0
++Terminal=false
+ InitialPreference=8
+-
++Categories=Qt;KDE;Game;StrategyGame;
++# vi: encoding=utf-8
