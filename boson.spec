@@ -9,7 +9,7 @@ Source0:	http://telia.dl.sourceforge.net/sourceforge/boson/%{name}-all-%{version
 Icon:		boson.xpm
 URL:		http://boson.sourceforge.net/
 BuildRequires:	arts-devel
-BuildRequires:	kdegames-devel
+BuildRequires:	kdegames-devel >= 3.0.3
 BuildRequires:	kdelibs-devel >= 3.0.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -47,7 +47,14 @@ kde_icondir=%{_pixmapsdir}; export kde_icondir
 kde_htmldir=%{_htmldir}; export kde_htmldir
 %configure \
 	--with-install-root=%{buildroot}
-%{__make} CXXFLAGS="-DQT_NO_STL"
+	
+# %{__make} Fails becuse after including many QT headers gcc is unable to find <map> :/
+mv map map.foo
+cd boson
+%{__make}
+cd ..
+mv map.foo map
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
