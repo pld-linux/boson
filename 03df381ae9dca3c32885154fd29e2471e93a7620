@@ -1,0 +1,4 @@
+- simplified %%install, removed %%{_bindir} and %%{_applnkdir} from package
+- fixed typo, added pl summary
+- NOTE: %%{_datadir}/icons should be changed to %%{_datadir}/pixmaps;
+  %%{_docdir}/HTML should be changed to something...
