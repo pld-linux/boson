@@ -29,7 +29,7 @@ still in very early development and not playable yet.
 %description -l pl
 Boson jest gr± strategiczn± rozgrywan± w czasie rzeczywistym, tak jak
 Command&Conquer czy StarCraft. Zosta³ zaprojektowany dla maszyn
-uniksowych (linuksowych); uzywa biblioteki Qt i QwSpriteField. Wymaga
+uniksowych (linuksowych); u¿ywa biblioteki Qt i QwSpriteField. Wymaga
 siê co najmniej dwóch graczy, poniewa¿ brak (jeszcze?) sztucznej
 inteligencji. Boson jest wci±¿ w fazie wczesnego rozwoju i nie da siê
 jeszcze w niego graæ.
