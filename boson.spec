@@ -12,6 +12,8 @@ Source1:	http://prdownloads.sourceforge.net/boson/%{name}-pics-%{version}.tgz
 Icon:		boson.xpm
 URL:		http://boson.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRequires:	autoconf
+BuildRequires:	automake
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -41,7 +43,9 @@ stronê WWW: http://aquila.rezel.enst.fr/boson/.
 %prep
 %setup -q
 %build
-%configure2_13 \
+aclocal
+autoconf
+%configure \
 	--prefix=$KDEDIR \
 	--libdir=%{buildroot}/$KDEDIR/lib \
 	--with-install-root=%{buildroot}
