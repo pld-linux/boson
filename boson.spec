@@ -1,14 +1,13 @@
 Summary:	Boson : a Real-Time Strategy Game (RTS) for the KDE project
 Name:		boson 
-Version:	0.2
+Version:	0.4
 Release:	1
 License:	GPL
-Group:		X11/KDE/Games
-Group(pl):	X11/KDE/Gry
-Source0:	boson-%{version}.tgz
-Source1:	boson-pics-%{version}.tgz
+Group:		X11/Applications/Games
+Source0:	ftp://aquila.rezel.enst.fr/pub/boson/{name}-%{version}.tar.bz2
+Source1:	ftp://aquila.rezel.enst.fr/pub/boson/%{name}-pics-%{version}.tar.bz2
 Icon:		boson.xpm
-URL:		http://aquila.rezel.enst.fr/boson/
+URL:		http://boson.eu.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -39,10 +38,10 @@ stronê WWW: http://aquila.rezel.enst.fr/boson/.
 %prep
 %setup -q
 %build
-CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" ./configure \
-              --prefix=$KDEDIR \
-              --libdir=%{buildroot}/$KDEDIR/lib \
- --with-install-root=%{buildroot}
+%configure \
+	--prefix=$KDEDIR \
+	--libdir=%{buildroot}/$KDEDIR/lib \
+	--with-install-root=%{buildroot}
 %{__make}
 
 %install
@@ -55,7 +54,7 @@ cd $RPM_BUILD_ROOT%{_datadir}/apps/
 cp $RPM_SOURCE_DIR/boson-pics-%{version}.tgz . 
 gunzip boson-pics-%{version}.tgz
 tar xvf boson-pics-%{version}.tar
-rm boson-pics-%{version}.tar
+rm -f boson-pics-%{version}.tar
 
 %clean
 rm -f $RPM_SOURCE_DIR
@@ -67,4 +66,4 @@ rm -f $RPM_SOURCE_DIR
 %{_datadir}/apps/
 %{_datadir}/icons/
 %doc %{_datadir}/doc/HTML/en/Boson/
-%doc AUTHORS COPYING ChangeLog INSTALL README TODO
+%doc AUTHORS ChangeLog README TODO
