@@ -5,8 +5,6 @@ Version:	0.5
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
-Group(de):	X11/Aplikacje/Spiele
-Group(pl):	X11/Aplikacje/Gry
 Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/boson/%{name}-%{version}.tar.bz2
 Source1:	ftp://ftp.sourceforge.net/pub/sourceforge/boson/%{name}-pics-%{version}.tgz
 Icon:		boson.xpm
