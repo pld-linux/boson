@@ -63,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 #install -d $RPM_BUILD_ROOT%{_datadir}/apps
 
 mv -f $RPM_BUILD_ROOT%{_applnkdir}/Games/{TacticStrategy,Strategy}
-mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/{hicolor/48x48/apps,}boson.png
+mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/{hicolor/48x48/apps/,}boson.png
 
 %find_lang %{name} --with-kde
 
