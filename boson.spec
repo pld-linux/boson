@@ -1,16 +1,16 @@
 Summary:	Boson: a Real-Time Strategy Game (RTS) for the KDE project
 Summary(pl):	Boson: gra strategiczna w czasie rzeczywistym dla KDE
 Name:		boson 
-Version:	0.4
+Version:	0.5
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Group(de):	X11/Aplikacje/Spiele
 Group(pl):	X11/Aplikacje/Gry
-Source0:	ftp://aquila.rezel.enst.fr/pub/boson/%{name}-%{version}.tar.bz2
-Source1:	ftp://aquila.rezel.enst.fr/pub/boson/%{name}-pics-%{version}.tar.bz2
+Source0:	http://prdownloads.sourceforge.net/boson/%{name}-%{version}.tar.bz2
+Source1:	http://prdownloads.sourceforge.net/boson/%{name}-pics-%{version}.tar.bz2
 Icon:		boson.xpm
-URL:		http://boson.eu.org/
+URL:		http://boson.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
