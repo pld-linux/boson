@@ -5,7 +5,7 @@ Version:	0.10
 Release:	0.1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-all-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/boson/%{name}-all-%{version}.tar.bz2
 # Source0-md5:	e54b1a3f1f140412597d4df296522bde
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-python.patch
@@ -15,10 +15,9 @@ BuildRequires:	arts-devel
 BuildRequires:	kdegames-devel >= 3.0.3
 BuildRequires:	kdelibs-devel >= 3.0.3
 BuildRequires:	lib3ds-devel
+BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	arts-X11
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_htmldir	%{_docdir}/kde/HTML
 
 %description
 Boson is a real-time strategy game, like Command&Conquer(tm) or
@@ -41,11 +40,8 @@ jeszcze w niego graæ.
 %patch1 -p1
 
 %build
-kde_icondir=%{_pixmapsdir}; export kde_icondir
-kde_htmldir=%{_htmldir}; export kde_htmldir
+kde_htmldir=%{_kdedocdir}; export kde_htmldir
 %configure \
-	--host=%{_host}\
-	--target=%{_target_platform} \
 	--disable-rpath \
 	--enable-final
 
@@ -66,8 +62,8 @@ rm -rf $RPM_BUILD_ROOT
 ## install textures and resources files :
 #install -d $RPM_BUILD_ROOT%{_datadir}/apps
 
-mv -f $RPM_BUILD_ROOT%{_applnkdir}/Games/{TacticStrategy,Strategy}
-mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/{hicolor/48x48/apps/,}boson.png
+mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Games/TacticStrategy \
+	$RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name} --with-kde
 
@@ -78,6 +74,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
-%{_applnkdir}/Games/Strategy/*.desktop
 %{_datadir}/apps/boson
-%{_pixmapsdir}/boson.png
+%{_desktopdir}/*.desktop
+%{_iconsdir}/hicolor/*/apps/boson.png
