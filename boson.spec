@@ -43,7 +43,7 @@ CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" ./configure \
               --prefix=$KDEDIR \
               --libdir=%{buildroot}/$KDEDIR/lib \
  --with-install-root=%{buildroot}
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
