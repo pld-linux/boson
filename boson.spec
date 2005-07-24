@@ -54,7 +54,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Games/TacticStrategy/boson \
-	$RPM_BUILD_ROOT%{_desktopdir}
+	$RPM_BUILD_ROOT%{_desktopdir}/kde
 
 %find_lang %{name} --with-kde
 
@@ -66,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/apps/boson
-%{_desktopdir}/*.desktop
+%{_desktopdir}/kde/*.desktop
 %{_datadir}/config/*
 %{_iconsdir}/hicolor/*/*/*
 %dir %{_libdir}/kde3/plugins/boson
