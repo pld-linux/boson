@@ -9,7 +9,6 @@ Source0:	http://dl.sourceforge.net/boson/%{name}-all-%{version}.tar.bz2
 # Source0-md5:	e54b1a3f1f140412597d4df296522bde
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-python.patch
-Icon:		boson.xpm
 URL:		http://boson.sourceforge.net/
 BuildRequires:	arts-devel
 BuildRequires:	kdegames-devel >= 3.0.3
