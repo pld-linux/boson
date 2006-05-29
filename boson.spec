@@ -1,18 +1,18 @@
 Summary:	Boson: a Real-Time Strategy Game (RTS) for the KDE project
 Summary(pl):	Boson: gra strategiczna w czasie rzeczywistym dla KDE
 Name:		boson
-Version:	0.10
+Version:	0.12
 Release:	0.1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/boson/%{name}-all-%{version}.tar.bz2
-# Source0-md5:	e54b1a3f1f140412597d4df296522bde
+# Source0-md5:	61a9f7270ebc20643df9c0fe534d0744
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-python.patch
 URL:		http://boson.sourceforge.net/
 BuildRequires:	arts-devel
-BuildRequires:	kdegames-devel >= 3.0.3
-BuildRequires:	kdelibs-devel >= 3.0.3
+BuildRequires:	kdegames-devel >= 3.1
+BuildRequires:	kdelibs-devel >= 3.1
 BuildRequires:	lib3ds-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	arts-X11
