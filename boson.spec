@@ -1,20 +1,20 @@
 Summary:	Boson: a Real-Time Strategy Game (RTS) for the KDE project
 Summary(pl):	Boson: gra strategiczna w czasie rzeczywistym dla KDE
 Name:		boson
-Version:	0.12
+Version:	0.13
 Release:	0.1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/boson/%{name}-all-%{version}.tar.bz2
-# Source0-md5:	61a9f7270ebc20643df9c0fe534d0744
-Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-python.patch
+# Source0-md5:	1b91bbdda1ff81d4d60f80c8175d974b
+Patch0:		%{name}-ugly_install_workround.patch
 URL:		http://boson.sourceforge.net/
 BuildRequires:	arts-devel
+BuildRequires:	cmake >= 2.4.0
 BuildRequires:	kdegames-devel >= 3.1
 BuildRequires:	kdelibs-devel >= 3.1
 BuildRequires:	lib3ds-devel
-BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	rpmbuild(macros) >= 1.293
 Requires:	arts-X11
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -34,15 +34,17 @@ inteligencji. Boson jest wci±¿ w fazie wczesnego rozwoju i nie da siê
 jeszcze w niego graæ.
 
 %prep
-%setup -q -n %{name}-all-%{version}
-%patch0	-p1
-%patch1 -p1
+%setup -q -c
+%patch0 -p1
 
 %build
-kde_htmldir=%{_kdedocdir}; export kde_htmldir
-%configure \
-	--disable-rpath \
-	--with-xinerama
+%cmake \
+%if "%{_lib}" == "lib64"
+	-DLIB_SUFFIX=64 \
+%endif
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
+	%{name}-all-%{version}
 
 %{__make}
 
@@ -51,25 +53,22 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Games/TacticStrategy/boson \
-	$RPM_BUILD_ROOT%{_desktopdir}/kde
-
-%find_lang %{name} --with-kde
+install -d $RPM_BUILD_ROOT%{_iconsdir}/hicolor/{32x32,48x48}/apps
+install %{name}-all-%{version}/code/boson/data/hi32-app-boeditor.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps/boeditor.png
+install %{name}-all-%{version}/code/boson/data/hi32-app-boson.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps/boson.png
+install %{name}-all-%{version}/code/boson/data/hi48-app-boeditor.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps/boeditor.png
+install %{name}-all-%{version}/code/boson/data/hi48-app-boson.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps/boson.png
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README TODO
+%doc boson-all-0.13/data/AUTHORS boson-all-0.13/data/ChangeLog boson-all-0.13/data/README
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/apps/boson
-%{_desktopdir}/kde/*.desktop
+%{_desktopdir}/*.desktop
 %{_datadir}/config/*
 %{_iconsdir}/hicolor/*/*/*
 %dir %{_libdir}/kde3/plugins/boson
 %attr(755,root,root) %{_libdir}/kde3/plugins/boson/*.so*
-%{_libdir}/kde3/plugins/boson/*.la
-%attr(755,root,root) %{_libdir}/kde3/plugins/designer/*.so
-%{_libdir}/kde3/plugins/designer/*.la
