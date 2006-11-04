@@ -1,3 +1,8 @@
+#
+# TODO:
+# - fix icon installation (probably somewhere in KDE3Macros.cmake)
+# - better %doc installation
+#
 Summary:	Boson: a Real-Time Strategy Game (RTS) for the KDE project
 Summary(pl):	Boson: gra strategiczna w czasie rzeczywistym dla KDE
 Name:		boson
@@ -11,8 +16,8 @@ Patch0:		%{name}-ugly_install_workround.patch
 URL:		http://boson.sourceforge.net/
 BuildRequires:	arts-devel
 BuildRequires:	cmake >= 2.4.0
-BuildRequires:	kdegames-devel >= 3.1
-BuildRequires:	kdelibs-devel >= 3.1
+BuildRequires:	kdegames-devel >= 8:3.2
+BuildRequires:	kdelibs-devel >= 9:3.2
 BuildRequires:	lib3ds-devel
 BuildRequires:	rpmbuild(macros) >= 1.293
 Requires:	arts-X11
