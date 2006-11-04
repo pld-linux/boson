@@ -1,7 +1,6 @@
 #
 # TODO:
 # - fix icon installation (probably somewhere in KDE3Macros.cmake)
-# - better %doc installation
 #
 Summary:	Boson: a Real-Time Strategy Game (RTS) for the KDE project
 Summary(pl):	Boson: gra strategiczna w czasie rzeczywistym dla KDE
@@ -63,13 +62,14 @@ install %{name}-all-%{version}/code/boson/data/hi32-app-boeditor.png $RPM_BUILD_
 install %{name}-all-%{version}/code/boson/data/hi32-app-boson.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps/boson.png
 install %{name}-all-%{version}/code/boson/data/hi48-app-boeditor.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps/boeditor.png
 install %{name}-all-%{version}/code/boson/data/hi48-app-boson.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps/boson.png
+mv -f boson-all-0.13/data/{AUTHORS,ChangeLog,README} .
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc boson-all-0.13/data/AUTHORS boson-all-0.13/data/ChangeLog boson-all-0.13/data/README
+%doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/apps/boson
 %{_desktopdir}/*.desktop
