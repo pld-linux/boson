@@ -1,0 +1,10 @@
+--- boson-0.13/boson-all-0.13/code/boson/data/CMakeLists.txt	2006-03-30 01:09:28.000000000 +0200
++++ boson-0.13/boson-all-0.13/code/boson/data/CMakeLists.txt-new	2006-11-04 04:51:51.867853736 +0100
+@@ -5,7 +5,3 @@
+ 	bodebugrc
+ 	bodebug.areas
+ )
+-
+-kde3_install_icons(hicolor)
+-#kde3_install_icons(locolor)
+-
