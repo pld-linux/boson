@@ -3,7 +3,7 @@
 # - fix icon installation (probably somewhere in KDE3Macros.cmake)
 #
 Summary:	Boson: a Real-Time Strategy Game (RTS) for the KDE project
-Summary(pl):	Boson: gra strategiczna w czasie rzeczywistym dla KDE
+Summary(pl.UTF-8):   Boson: gra strategiczna w czasie rzeczywistym dla KDE
 Name:		boson
 Version:	0.13
 Release:	0.1
@@ -29,13 +29,13 @@ uses the Qt Toolkit and QwSpriteField. A minimum of two players is
 required, since there is no artificial intelligence (yet?). Boson is
 still in very early development and not playable yet.
 
-%description -l pl
-Boson jest gr± strategiczn± rozgrywan± w czasie rzeczywistym, tak jak
-Command&Conquer czy StarCraft. Zosta³ zaprojektowany dla maszyn
-uniksowych (linuksowych); u¿ywa biblioteki Qt i QwSpriteField. Wymaga
-siê co najmniej dwóch graczy, poniewa¿ brak (jeszcze?) sztucznej
-inteligencji. Boson jest wci±¿ w fazie wczesnego rozwoju i nie da siê
-jeszcze w niego graæ.
+%description -l pl.UTF-8
+Boson jest grÄ… strategicznÄ… rozgrywanÄ… w czasie rzeczywistym, tak jak
+Command&Conquer czy StarCraft. ZostaÅ‚ zaprojektowany dla maszyn
+uniksowych (linuksowych); uÅ¼ywa biblioteki Qt i QwSpriteField. Wymaga
+siÄ™ co najmniej dwÃ³ch graczy, poniewaÅ¼ brak (jeszcze?) sztucznej
+inteligencji. Boson jest wciÄ…Å¼ w fazie wczesnego rozwoju i nie da siÄ™
+jeszcze w niego graÄ‡.
 
 %prep
 %setup -q -c
