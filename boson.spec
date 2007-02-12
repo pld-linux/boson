@@ -3,7 +3,7 @@
 # - fix icon installation (probably somewhere in KDE3Macros.cmake)
 #
 Summary:	Boson: a Real-Time Strategy Game (RTS) for the KDE project
-Summary(pl.UTF-8):   Boson: gra strategiczna w czasie rzeczywistym dla KDE
+Summary(pl.UTF-8):	Boson: gra strategiczna w czasie rzeczywistym dla KDE
 Name:		boson
 Version:	0.13
 Release:	0.1
