@@ -39,7 +39,7 @@ jeszcze w niego grać.
 
 %prep
 %setup -q -c
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %cmake \
